@@ -1,0 +1,95 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3 {
+    font-weight: normal;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #0077cc;
+  }
+  
+  /* Estilos para el encabezado */
+  header {
+    background-color: #005082;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  header ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header ul li {
+    margin-left: 20px;
+  }
+  
+  header ul li:first-child {
+    margin-left: 0;
+  }
+  
+  header ul li a {
+    color: #fff;
+  }
+  
+  /* Estilos para el cuerpo de la página */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+  }
+  
+  section {
+    margin-bottom: 50px;
+  }
+  
+  h2 {
+    color: #005082;
+    margin-top: 0;
+  }
+  
+  ul#retos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul#retos li {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  ul#retos li h3 {
+    color: #005082;
+    margin-top: 0;
+  }
+  
+  .comenzar-reto {
+    background-color: #0077cc;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .comenzar-reto:hover {
+    background-color: #005082;
+  }
