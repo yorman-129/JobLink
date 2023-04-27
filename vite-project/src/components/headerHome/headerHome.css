@@ -1,4 +1,5 @@
-header {
+
+.headerHomeUsers {
     background-color: #005082;
     color: #fff;
     display: flex;
@@ -6,26 +7,32 @@ header {
     align-items: center;
     padding: 10px 30px;
   }
+
+  .headerHomeUsers nav{
+    padding: 0px 100px;
+    
+  }
   
-  header h1 {
+  .headerHomeUsers h1 {
     margin: 0;
   }
   
-  header ul {
+  .headerHomeUsers ul {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
   }
   
-  header ul li {
+  .headerHomeUsers ul li {
     margin-left: 20px;
   }
   
-  header ul li:first-child {
+  .headerHomeUsers ul li:first-child {
     margin-left: 0;
   }
   
-  header ul li a {
+  .headerHomeUsers ul li a {
     color: #fff;
+    text-decoration: none;
   }

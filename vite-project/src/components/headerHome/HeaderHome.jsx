@@ -4,14 +4,14 @@ import './headerHome.css';
 const HeaderHome = () => {
   return (
     <>
-    <header>
-      <h1>JobLink</h1>
+    <header className='headerHomeUsers'>
+      <h1>JobLink</h1> 
       <nav>
         <ul>
           <li><a href="#">Ver Retos</a></li>
           <li><a href="#">Ver Progreso</a></li>
         </ul>
-      </nav>
+      </nav> 
     </header>
     </>
   )

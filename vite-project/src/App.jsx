@@ -1,15 +1,13 @@
 import React from 'react'
-import './App.css'
-import HeaderHome from './components/headerHome/HeaderHome'
-import MainHome from './components/mainHome/MainHome'
+import HomeUser from './pages/HomeUser'
+import './app.css'
 
 function App() {
 
 
   return (
     <>
-    <HeaderHome/>
-    <MainHome/>
+    <HomeUser/>
     </>
   )
 }
