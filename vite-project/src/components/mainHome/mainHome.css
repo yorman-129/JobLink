@@ -1,0 +1,45 @@
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+  }
+  
+  section {
+    margin-bottom: 50px;
+  }
+  
+  h2 {
+    color: #005082;
+    margin-top: 0;
+  }
+  
+  ul#retos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul#retos li {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  ul#retos li h3 {
+    color: #005082;
+    margin-top: 0;
+  }
+  
+  .comenzar-reto {
+    background-color: #0077cc;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .comenzar-reto:hover {
+    background-color: #005082;
+  }

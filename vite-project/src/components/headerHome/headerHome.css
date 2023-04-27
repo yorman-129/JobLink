@@ -1,0 +1,31 @@
+header {
+    background-color: #005082;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  header ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header ul li {
+    margin-left: 20px;
+  }
+  
+  header ul li:first-child {
+    margin-left: 0;
+  }
+  
+  header ul li a {
+    color: #fff;
+  }
