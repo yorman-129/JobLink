@@ -20,7 +20,7 @@ const MainHome = () => {
     }
   ]) 
 
-  const handleReto = (evento) => {
+  const handleReto = () => {
     console.log('exitoso')
   }
 
@@ -35,7 +35,6 @@ const MainHome = () => {
           <h2>Últimos Retos</h2>
           <ul className='retos'>
             
-
             {retos.map((reto) =>{
               return <CardReto tittle={reto.nombreEmpresa} description={reto.problema} id={reto.idreto} onClick={handleReto}/>
             })}
