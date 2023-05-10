@@ -20,4 +20,5 @@ public class Reto implements Serializable {
     Empresa empresa;
     String descripcion;
     String dificultad;
+    Boolean estado;
 }
