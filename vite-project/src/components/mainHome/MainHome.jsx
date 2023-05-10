@@ -1,24 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import CardReto from '../retos/CardReto';
 import './mainHome.css';
 
 const MainHome = () => {
-  const [retos, setReto]=useState([
-    {
-      nombreEmpresa: 'Renault',
-      idreto: 1,
-      problema: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-       Eos dolorem inventore animi rem distinctio est recusandae sint? Consectetur, aut ea tempora rem unde,
-       et id architecto cumque hic, laudantium quibusdam.`
-    },
-    {
-      nombreEmpresa: 'Facebook',
-      idreto: 2,
-      problema: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Eos dolorem inventore animi rem distinctio est recusandae sint? Consectetur, aut ea tempora rem unde,
-      et id architecto cumque hic, laudantium quibusdam.`
-    }
-  ]) 
+  const [retos, setReto]=useState([{}]) 
+
+
+  useEffect(() => {
+    axios.get('http://localhost:8087/retos/all')
+      .then(res => {
+        console.log(res)
+        setReto(res.data);
+      });
+  }, []);
+
 
   const handleReto = () => {
     console.log('exitoso')
@@ -36,8 +32,10 @@ const MainHome = () => {
           <ul className='retos'>
             
             {retos.map((reto) =>{
-              return <CardReto tittle={reto.nombreEmpresa} description={reto.problema} id={reto.idreto} onClick={handleReto}/>
-            })}
+              console.log(reto)
+              return <CardReto description={reto.descripcion} dificultad={reto.dificultad} empresa={reto.empresa} id={reto.id} onClick={handleReto}/>
+            })} 
+         
             
           </ul>
         </section>

@@ -1,7 +1,7 @@
 import React from 'react'
 
-const CardReto = ({tittle,description,id, onClick}) => {
-    
+const CardReto = ({description,dificultad,empresa,id, onClick}) => {
+
     const handleButton = (evento)=>{
         evento.preventDefault();
         onClick(evento.target)
@@ -9,8 +9,9 @@ const CardReto = ({tittle,description,id, onClick}) => {
   return (
     <>
        <li key={id}>
-              <h3>{tittle}</h3>
+              <h3>{empresa.nombre}</h3>
               <p>{description}</p>
+              <p>{dificultad}</p>
               <button className="comenzar-reto" id={id} onClick={handleButton}>Comenzar Reto</button>
         </li>
     </>
