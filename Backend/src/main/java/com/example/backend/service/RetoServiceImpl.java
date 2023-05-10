@@ -3,10 +3,10 @@ package com.example.backend.service;
 import com.example.backend.dao.RetoRepository;
 import com.example.backend.model.Reto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RetoServiceImpl implements RetoService {
@@ -16,6 +16,12 @@ public class RetoServiceImpl implements RetoService {
     public List<Reto> getAllRetos() {
         return retoRepository.findAll();
     }
+
+    @Override
+    public Reto buscarReto(String id) {
+        return retoRepository.findById(id).orElse(null);
+    }
+
 
     @Override
     public Reto agregarReto(Reto reto) {

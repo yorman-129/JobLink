@@ -20,6 +20,11 @@ public class RetoDaoImpl implements RetoDao {
     }
 
     @Override
+    public Reto buscarReto(String id) {
+      return mongoTemplate.findById(id, Reto.class);
+    }
+
+    @Override
     public void agregarReto(Reto reto) {
         if (reto.getDificultad() == null || reto.getEmpresa() == null) {
             throw new IllegalArgumentException("Dificultad y empresa son campos requeridos");
