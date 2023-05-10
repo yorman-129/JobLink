@@ -10,4 +10,6 @@ public interface RetoDao {
     void agregarReto(Reto reto);
     void eliminarReto(Reto reto);
 
+    List<Reto> obtenerRetos();
+
 }

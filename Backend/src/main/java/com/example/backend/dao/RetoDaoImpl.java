@@ -32,4 +32,9 @@ public class RetoDaoImpl implements RetoDao {
         Query query = new Query(Criteria.where("id").is(reto.getId()));
         mongoTemplate.remove(query, Reto.class);
     }
+
+    @Override
+    public List<Reto> obtenerRetos() {
+        return mongoTemplate.findAll(Reto.class);
+    }
 }

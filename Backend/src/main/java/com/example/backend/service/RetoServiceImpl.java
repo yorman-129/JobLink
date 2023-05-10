@@ -27,4 +27,5 @@ public class RetoServiceImpl implements RetoService {
     public void eliminarReto(Reto reto) {
         retoRepository.delete(reto);
     }
+
 }

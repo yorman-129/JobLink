@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/retos")
@@ -24,5 +26,10 @@ public class RetoController {
     @PostMapping(value = "agregar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public String agregarReto(@RequestBody Reto reto){
        return String.valueOf(retoService.agregarReto(reto));
+    }
+
+    @GetMapping(value = "all", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Reto> findAll(){
+        return retoService.getAllRetos();
     }
 }
