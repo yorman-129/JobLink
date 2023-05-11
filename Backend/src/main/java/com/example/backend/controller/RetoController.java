@@ -24,8 +24,8 @@ public class RetoController {
     }
 
     @PostMapping(value = "agregar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String agregarReto(@RequestBody Reto reto){
-       return String.valueOf(retoService.agregarReto(reto));
+    public Reto agregarReto(@RequestBody Reto reto){
+       return retoService.agregarReto(reto);
     }
 
     @GetMapping(value = "all", produces = MediaType.APPLICATION_JSON_VALUE)
