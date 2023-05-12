@@ -16,8 +16,8 @@ const MainHome = () => {
   }, []);
 
 
-  const handleReto = () => {
-    console.log('exitoso')
+  const handleReto = (event) => {
+    console.log(event)
   }
 
   return (
@@ -32,7 +32,7 @@ const MainHome = () => {
           <ul className='retos'>
             
             {retos.map((reto) =>{
-              console.log(reto)
+             
               return <CardReto description={reto.descripcion} dificultad={reto.dificultad} empresa={reto.empresa} id={reto.id} onClick={handleReto}/>
             })} 
          

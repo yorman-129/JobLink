@@ -9,7 +9,7 @@ const Router = (<BrowserRouter>
   <Routes>
     <Route path="" element={<App />} />
     <Route path="/" element={<App />} />
-    <Route path="/retoSolucion" element={<RetosSolucion />} />
+    <Route path="/retoSolucion/:id" element={<RetosSolucion />} />
   </Routes>
 </BrowserRouter>)
 

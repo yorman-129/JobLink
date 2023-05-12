@@ -1,0 +1,33 @@
+.card{
+    width: 720px;
+    height: 420px;
+    background-color: rgba(173, 173, 173, 0.192);
+    margin: 50px auto 50px auto;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 8px 1px #005082;
+}
+.card:hover{
+    box-shadow: 1px 1px 20px 1px #005082;
+}
+
+.h2{
+    width: 100%;
+    height: 60px;
+    background-color: #005082;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+.a{
+    width: 100%;
+    text-align: center;
+}
+
+.input{
+    margin: auto;
+    font-weight: bold;
+}
