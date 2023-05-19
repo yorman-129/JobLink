@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/estudiante")
@@ -26,7 +28,8 @@ public class EstudianteController {
     }
 
     @PostMapping(value = "login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> login(@RequestBody String email) {
+    public ResponseEntity<Object> login(@RequestBody HashMap<String, String> request) {
+        String email = request.get("email");
        return estudianteService.login(email);
     }
 }
