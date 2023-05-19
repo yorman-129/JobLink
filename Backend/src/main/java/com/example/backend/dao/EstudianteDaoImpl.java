@@ -5,10 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 @Repository
 public class EstudianteDaoImpl implements EstudianteDao {
@@ -16,7 +20,9 @@ public class EstudianteDaoImpl implements EstudianteDao {
     @Autowired
     MongoTemplate mongoTemplate;
 
-    @Autowired EstudianteRepository estudianteRepository;
+    @Autowired
+    EstudianteRepository estudianteRepository;
+
     @Override
     public List<Estudiante> getAll() {
         return mongoTemplate.findAll(Estudiante.class);
@@ -43,4 +49,6 @@ public class EstudianteDaoImpl implements EstudianteDao {
         query.addCriteria(Criteria.where("nombre").is(nombre));
         return mongoTemplate.findOne(query, Estudiante.class);
     }
+
+
 }
