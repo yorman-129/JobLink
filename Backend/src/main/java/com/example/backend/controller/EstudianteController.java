@@ -23,8 +23,8 @@ public class EstudianteController {
     }
 
     @PostMapping(value = "agregar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String guardarEstudiante(@RequestBody Estudiante estudiante) {
-        return String.valueOf(estudianteService.agregarEstudiante(estudiante));
+    public Estudiante guardarEstudiante(@RequestBody Estudiante estudiante) {
+        return (estudianteService.agregarEstudiante(estudiante));
     }
 
     @PostMapping(value = "login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
