@@ -1,7 +1,6 @@
 package com.example.backend.service;
 
 import com.example.backend.dao.EstudianteDaoImpl;
-import com.example.backend.dao.EstudianteRepository;
 import com.example.backend.model.Estudiante;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
+
+import static com.example.backend.configuration.StatusMessages.*;
 
 @Service
 public class EstudianteServiceImpl implements EstudianteService {
@@ -41,22 +42,30 @@ public class EstudianteServiceImpl implements EstudianteService {
     }
 
     @Override
-    public Estudiante agregarEstudiante(Estudiante estudiante) {
-        estudianteDao.agregarEstudiante(estudiante);
-        return estudiante;
+    public ResponseEntity<Object> agregarEstudiante(Estudiante estudiante) {
+        if (validateEmail(estudiante.getEmail())) {
+            estudianteDao.agregarEstudiante(estudiante);
+            return ResponseEntity.ok(estudiante);
+        } else {
+            return ResponseEntity.unprocessableEntity().body(INVALID_STUDENT_BODY);
+        }
+    }
+
+    public boolean validateEmail(String email) {
+        email = email.replace("\"", "");
+        email = email.replace("\r", "").replace("\n", "");
+        return EMAIL_PATTERN.matcher(email).matches();
     }
 
     @Override
     public ResponseEntity<Object> login(String email) {
         Map<String, String> response = new HashMap<>();
-        response.put("message", "Email inválido");
         email = email.replace("\"", "");
         email = email.replace("\r", "").replace("\n", "");
-        if (email != null && EMAIL_PATTERN.matcher(email).matches()) {
-            response.put("message", "Email válido");
-            return ResponseEntity.ok().body(response);
+        if (email != null && validateEmail(email)) {
+            return ResponseEntity.ok().body(LOGIN_SUCCESS);
         } else {
-            return ResponseEntity.badRequest().body(response);
+            return ResponseEntity.badRequest().body(INVALID_EMAIL);
         }
     }
 }

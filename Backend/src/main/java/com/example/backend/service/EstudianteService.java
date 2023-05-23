@@ -13,7 +13,7 @@ public interface EstudianteService {
 
     Estudiante getSingleEstudiante(String nombre);
 
-    Estudiante agregarEstudiante(Estudiante estudiante);
+    ResponseEntity<Object> agregarEstudiante(Estudiante estudiante);
 
     ResponseEntity<Object> login(String email);
 }
