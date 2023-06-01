@@ -22,13 +22,13 @@ const MainHome = () => {
 
   return (
     <>
-      <main className='container-main'>
+      <main className='container-main'> 
         <section className='container-section'>
           <h2>Bienvenido a la Plataforma de Retos.</h2>
           <p>Esta es una plataforma donde podrás encontrar retos proporcionados por empresas del Oriente Antioqueño. Completa los retos y recibe una certificación de experiencia. </p>
         </section>
         <section className='container-section'>
-          <h2>Últimos Retos</h2>
+          <h3>Últimos Retos</h3>
           <ul className='retos'>
             
             {retos.map((reto) =>{

@@ -8,7 +8,7 @@ const CardReto = ({description,dificultad,empresa,id, onClick}) => {
   return (
     <>
        <li key={id}>
-              <h3>{empresa?.nombre}</h3>
+              <h4>{empresa?.nombre}</h4>
               <p>{description}</p>
               <p>{dificultad}</p>
               <a href={`./retoSolucion/${id}`} className="comenzar-reto" onClick={handleButton} >Comenzar Reto</a>

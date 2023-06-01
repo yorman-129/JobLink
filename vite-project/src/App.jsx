@@ -1,6 +1,6 @@
 import React from 'react'
 import HomeUser from './pages/HomeUser'
-import './app.css'
+import './App.css'
 
 function App() {
 

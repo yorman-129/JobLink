@@ -7,30 +7,41 @@ import Inicio from './Inicio';
 import axios from 'axios';
 
 const Login = () => {
-  const [register, setRegistrer] = useState(true);
+  const [register, setRegistrer] = useState(false);
   const navigate = useNavigate();
 
   const handleFormInicio = (data) => {
-    console.log(data);
+    console.log(data, "XXXXX");
     axios.post('http://localhost:8087/estudiante/login', data).then((res) => {
       if (res.status === 200) {
         navigate('/home');
       }
-    });
+    }).catch(e=>{
+      console.log(e);
+      alert('Error iniciar: Correo no estudiantil o por favor registrate')
+    })
   };
 
   const handleFormRegistro = (data) => {
     console.log(data);
     axios.post('http://localhost:8087/estudiante/agregar', data).then((res) => {
-      console.log(res);
+      console.log(res); 
+      setRegistrer(!register)
     });
   };
+
+  const handleChangeForm = ()=>{
+    setRegistrer(!register)
+  }
 
   return (
     <>
       <HeaderPrincipal />
       {register === false && <Registro handleFormRegistro={handleFormRegistro} />}
       {register && <Inicio handleFormInicio={handleFormInicio} />}
+      {register==false && <a className='opcionLogin' onClick={handleChangeForm}> Iniciar sesion </a>}
+      {register==true && <a className='opcionLogin' onClick={handleChangeForm}> Registarse</a>}
+
       <Footer />
     </>
   );

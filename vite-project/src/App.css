@@ -3,6 +3,7 @@ body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #757373;
 }
 
 h1, h2, h3 {
@@ -12,4 +13,16 @@ h1, h2, h3 {
 a {
   text-decoration: none;
   color: #0077cc;
+}
+.opcionLogin{
+  display: block;
+  margin-bottom: 80px;
+  font-size: 1.3rem;
+  font-weight: bolder;
+  color: aliceblue;
+  text-align: center;
+}
+.opcionLogin:hover{
+  color: blue;
+  text-decoration:underline;
 }

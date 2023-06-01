@@ -19,6 +19,7 @@ const MainRetos = ({data}) => {
         <p className='a'style={{color: Color()}}>Nivel {data.dificultad}</p>
         <p className='p'>{data.descripcion}</p>
         <input className='input' type="file" name="" id="" />
+        <input  className='inputSubmit' type="submit" value="Enviar" />
       </div>
     </>
   )
