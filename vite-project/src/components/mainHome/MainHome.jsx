@@ -10,14 +10,13 @@ const MainHome = () => {
   useEffect(() => {
     axios.get('http://localhost:8087/retos/all')
       .then(res => {
-        console.log(res)
         setReto(res.data);
       });
   }, []);
 
 
   const handleReto = (event) => {
-    console.log(event)
+    
   }
 
   return (

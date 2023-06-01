@@ -9,7 +9,7 @@ const Registro = ({handleFormRegistro}) => {
             ...form,
             [nameInput]:e.target.value
         })
-        console.log(form)
+
     }
     const handleForm=(e)=>{
         e.preventDefault();
