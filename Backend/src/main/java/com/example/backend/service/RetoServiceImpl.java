@@ -36,4 +36,14 @@ public class RetoServiceImpl implements RetoService {
         retoDao.eliminarReto(reto);
     }
 
+    @Override
+    public void guardarSolucion(String id, byte[] solucion) {
+        retoDao.guardarSolucion(id,solucion);
+    }
+
+    @Override
+    public byte[] obtenerSolucion(String id) {
+      return  retoDao.obtenerSolucion(id);
+    }
+
 }

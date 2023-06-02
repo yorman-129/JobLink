@@ -12,5 +12,7 @@ public interface RetoService {
     Reto agregarReto(Reto reto);
 
     void eliminarReto(Reto reto);
+    void guardarSolucion(String id, byte[] solucion);
+    byte[] obtenerSolucion(String id);
 
 }
