@@ -10,6 +10,6 @@ public interface RetoDao {
     void agregarReto(Reto reto);
     void eliminarReto(Reto reto);
     List<Reto> obtenerRetos();
-    void guardarSolucion(String id, byte[] solucion);
+    void guardarSolucion(String id, byte[] solucion, String email);
     byte[] obtenerSolucion(String id);
 }

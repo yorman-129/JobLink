@@ -22,4 +22,5 @@ public class Reto implements Serializable {
     String dificultad;
     Boolean estado;
     byte[] solucion;
+    String mail;
 }

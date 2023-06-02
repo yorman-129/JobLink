@@ -45,15 +45,15 @@ public class RetoDaoImpl implements RetoDao {
   }
 
   @Override
-  public void guardarSolucion(String id, byte[] solucion) {
+  public void guardarSolucion(String id, byte[] solucion, String mail) {
     Query query = new Query(Criteria.where("id").is(id));
-    Update update = new Update().set("solucion", solucion);
+    Update update = new Update().set("solucion", solucion).set("mail", mail);
     mongoTemplate.updateFirst(query, update, Reto.class);
   }
 
-    @Override
-    public byte[] obtenerSolucion(String id) {
-      Query query = new Query(Criteria.where("id").is(id));
-      return Objects.requireNonNull(mongoTemplate.findOne(query, Reto.class)).getSolucion();
-    }
+  @Override
+  public byte[] obtenerSolucion(String id) {
+    Query query = new Query(Criteria.where("id").is(id));
+    return Objects.requireNonNull(mongoTemplate.findOne(query, Reto.class)).getSolucion();
+  }
 }

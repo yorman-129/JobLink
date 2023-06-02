@@ -11,39 +11,36 @@ import java.util.Optional;
 
 @Service
 public class RetoServiceImpl implements RetoService {
-    @Autowired
-    RetoDaoImpl retoDao;
+  @Autowired RetoDaoImpl retoDao;
 
-    @Override
-    public List<Reto> getAllRetos() {
-        return retoDao.getAllRetos();
-    }
+  @Override
+  public List<Reto> getAllRetos() {
+    return retoDao.getAllRetos();
+  }
 
-    @Override
-    public Reto buscarReto(String id) {
-        return retoDao.buscarReto(id);
-    }
+  @Override
+  public Reto buscarReto(String id) {
+    return retoDao.buscarReto(id);
+  }
 
+  @Override
+  public Reto agregarReto(Reto reto) {
+    retoDao.agregarReto(reto);
+    return reto;
+  }
 
-    @Override
-    public Reto agregarReto(Reto reto) {
-        retoDao.agregarReto(reto);
-        return reto;
-    }
+  @Override
+  public void eliminarReto(Reto reto) {
+    retoDao.eliminarReto(reto);
+  }
 
-    @Override
-    public void eliminarReto(Reto reto) {
-        retoDao.eliminarReto(reto);
-    }
+  @Override
+  public void guardarSolucion(String id, byte[] solucion, String mail) {
+    retoDao.guardarSolucion(id, solucion, mail);
+  }
 
-    @Override
-    public void guardarSolucion(String id, byte[] solucion) {
-        retoDao.guardarSolucion(id,solucion);
-    }
-
-    @Override
-    public byte[] obtenerSolucion(String id) {
-      return  retoDao.obtenerSolucion(id);
-    }
-
+  @Override
+  public byte[] obtenerSolucion(String id) {
+    return retoDao.obtenerSolucion(id);
+  }
 }

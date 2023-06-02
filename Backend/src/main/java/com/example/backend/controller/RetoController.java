@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
 
 import java.io.IOException;
 import java.util.List;
@@ -50,29 +51,32 @@ public class RetoController {
   }
 
   @PostMapping(value = "/{id}/solucion", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-  public void uploadRetoSolucion(@PathVariable String id, @RequestParam MultipartFile file) {
+  public void uploadRetoSolucion(
+      @PathVariable String id,
+      @RequestParam MultipartFile file,
+      @RequestParam String mail) {
     try {
       byte[] solucion = file.getBytes();
-      retoService.guardarSolucion(id, solucion);
+      retoService.guardarSolucion(id, solucion, mail);
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
 
-    @GetMapping(value = "/{id}/solucion", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-    public ResponseEntity<Resource> downloadRetoSolucion(@PathVariable String id) {
-        byte[] solucion = retoService.obtenerSolucion(id);
-        if (solucion != null) {
-            ByteArrayResource resource = new ByteArrayResource(solucion);
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentDispositionFormData("attachment", "solucion.zip");
-            return ResponseEntity.ok()
-                    .headers(headers)
-                    .contentLength(solucion.length)
-                    .contentType(MediaType.APPLICATION_OCTET_STREAM)
-                    .body(resource);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+  @GetMapping(value = "/{id}/solucion", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+  public ResponseEntity<Resource> downloadRetoSolucion(@PathVariable String id) {
+    byte[] solucion = retoService.obtenerSolucion(id);
+    if (solucion != null) {
+      ByteArrayResource resource = new ByteArrayResource(solucion);
+      HttpHeaders headers = new HttpHeaders();
+      headers.setContentDispositionFormData("attachment", "solucion.zip");
+      return ResponseEntity.ok()
+          .headers(headers)
+          .contentLength(solucion.length)
+          .contentType(MediaType.APPLICATION_OCTET_STREAM)
+          .body(resource);
+    } else {
+      return ResponseEntity.notFound().build();
     }
+  }
 }
