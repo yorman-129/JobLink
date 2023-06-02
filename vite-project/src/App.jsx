@@ -7,7 +7,9 @@ function App() {
 
   return (
     <>
+    <MiContexto.Provider value={data}>
     <HomeUser/>
+    </MiContexto.Provider>
     </>
   )
 }

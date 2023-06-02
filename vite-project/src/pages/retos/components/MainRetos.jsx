@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './retosEstilo.css';
 import axios from 'axios';
 
+
 const MainRetos = ({data}) => {
   
   const Color = ()=>{
@@ -17,6 +18,7 @@ const MainRetos = ({data}) => {
   const [reto, setReto]=useState(null)
 
   const handleReto = (event)=>{
+    console.log(event.target.files[0]);
     
     setReto(event.target.files[0])
   }
@@ -25,10 +27,10 @@ const MainRetos = ({data}) => {
     console.log("datos a enviar", reto);
     const formData = new FormData();
     formData.append('file', reto);
+    
     formData.append('mail', data.email);
-    console.log("XXXXXXXXXXXXXXXXXX",formData);
     axios.post(`http://localhost:8087/retos/${data.id}/solucion`, formData)
-    setReto(null);
+  
   }
 
   return (
