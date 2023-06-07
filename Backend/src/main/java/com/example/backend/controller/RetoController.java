@@ -16,7 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -51,15 +52,23 @@ public class RetoController {
 
   @PostMapping(value = "/{id}/solucion", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
   public void uploadRetoSolucion(
-      @PathVariable String id,
-      @RequestParam MultipartFile file,
-      @RequestParam String mail) {
+      @PathVariable String id, @RequestParam MultipartFile file, @RequestParam String mail) {
     try {
       byte[] solucion = file.getBytes();
       retoService.guardarSolucion(id, solucion, mail);
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  @GetMapping(value = "progreso", produces = MediaType.APPLICATION_JSON_VALUE)
+  public List<Reto> retosByEmail(@RequestBody HashMap<String, String> request) {
+    String email = request.get("email");
+
+    List<Reto> retoList = retoService.getAllRetos();
+    return Optional.ofNullable(retoList).orElse(Collections.emptyList()).stream()
+        .filter(reto -> Objects.equals(reto.getMail(), email))
+        .collect(Collectors.toList());
   }
 
   @GetMapping(value = "/{id}/solucion", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
