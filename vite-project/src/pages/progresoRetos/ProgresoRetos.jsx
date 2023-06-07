@@ -1,8 +1,8 @@
 import React from 'react'
 import HeaderHome from '../../components/headerHome/HeaderHome'
-import MainProgreso from './mainProgreso'
 import Footer from '../../components/footer/Footer'
 import { useParams } from 'react-router-dom';
+import MainProgreso from './mainProgreso';
 
 
 const ProgresoRetos = () => {
@@ -11,7 +11,7 @@ const ProgresoRetos = () => {
     return (
         <>
             <HeaderHome />
-            <MainProgreso data={id}/>
+            <MainProgreso/>
             <Footer/>
         </>
 

@@ -6,9 +6,8 @@ const HeaderHome = ({data}) => {
   const navigate = useNavigate();
 
   const handleClick=()=>{
-    const email= data.data.email
-    console.log(email)
-    navigate(`/progreso/${email}`)
+    
+    navigate(`/home/progreso`)
   }
 
 
