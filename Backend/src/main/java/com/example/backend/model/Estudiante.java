@@ -19,4 +19,5 @@ public class Estudiante implements Serializable {
     String id;
     String nombre;
     String email;
+    String experiencia;
 }
