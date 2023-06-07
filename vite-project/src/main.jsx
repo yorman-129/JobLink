@@ -12,6 +12,7 @@ const Router = (<BrowserRouter>
     <Route path="/home" element={<App />} />
     <Route path="/login" element={<Login />} />
     <Route path="/retoSolucion/:id" element={<RetosSolucion />} />
+    <Route path="/progreso/:id" element={<RetosSolucion />} />
   </Routes>
 </BrowserRouter>)
 
