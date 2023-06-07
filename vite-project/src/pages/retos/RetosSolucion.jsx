@@ -11,6 +11,7 @@ const RetosSolucion = () => {
   const location = useLocation();
   const loginData = location.state?.loginData;
   console.log(loginData,"retos-solucion");
+
   const [reto, setReto] = useState([{}]);
   const { id } = useParams();
   const url = `http://localhost:8087/retos/find/${id}`;
@@ -26,7 +27,7 @@ const RetosSolucion = () => {
   return (
     <>
       <HeaderRetos data={reto} />
-      <MainRetos data={reto} mail={loginData}/>
+      <MainRetos data={reto} email={loginData}/>
       <Footer />
     </>
   )
