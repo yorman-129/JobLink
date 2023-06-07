@@ -1,19 +1,26 @@
 import React from 'react'
 import './headerHome.css';
+import { useNavigate } from 'react-router-dom';
 
-const HeaderHome = () => {
+const HeaderHome = ({data}) => {
+  const navigate = useNavigate();
 
-  const handleClick = () => {
-    
+  const handleClick=()=>{
+    const email= data.data.email
+    console.log(email)
+    navigate(`/progreso/${email}`)
   }
+
+
+ 
   return (
     <>
     <header className='headerHomeUsers'>
       <h1>JobLink</h1> 
       <nav>
         <ul>
-          <li><a href="#" onClick={handleClick}>Ver Retos</a></li>
-          <li><a href="#">Ver Progreso</a></li>
+          <li><a href="#">Ver Retos</a></li>
+          <li><a href='#' onClick={handleClick}>Ver Progreso</a></li>
         </ul>
       </nav> 
     </header>
