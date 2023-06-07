@@ -1,6 +1,6 @@
 import {React,useState} from 'react'
 
-const Registro = ({handleFormRegistro}) => {
+const Registro = ({handleFormRegistro}) => {;
     const [form, setForm]=useState(null)
 
     const handleInput=(e)=>{

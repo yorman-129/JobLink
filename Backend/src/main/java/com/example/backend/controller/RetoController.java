@@ -46,7 +46,6 @@ public class RetoController {
   @GetMapping(value = "find/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
   public Reto findId(@PathVariable("id") String id) {
     List<Reto> retos = retoService.getAllRetos();
-    System.out.println(retos.get(0).getDescripcion());
     return retos.stream().filter(reto -> reto.getId().equals(id)).findFirst().orElse(null);
   }
 
