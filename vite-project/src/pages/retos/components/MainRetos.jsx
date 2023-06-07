@@ -3,7 +3,7 @@ import './retosEstilo.css';
 import axios from 'axios';
 
 
-const MainRetos = ({data}) => {
+const MainRetos = ({data, mail}) => {
   
   const Color = ()=>{
     if (data.dificultad==='Alto'){
@@ -24,11 +24,12 @@ const MainRetos = ({data}) => {
   }
   
   const sendData = ()=>{
+    const email= mail
     console.log("datos a enviar", reto);
+    console.log("datos mail", email.data)
     const formData = new FormData();
     formData.append('file', reto);
-    
-    formData.append('mail', data.email);
+    formData.append('mail', );
     axios.post(`http://localhost:8087/retos/${data.id}/solucion`, formData)
   
   }

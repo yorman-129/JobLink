@@ -14,11 +14,10 @@ const Login = () => {
 
 
   const handleFormInicio = (data) => {
-    
     axios.post('http://localhost:8087/estudiante/login', data).then((res) => {
       if (res.status === 200) {
 
-        navigate('/home');
+        navigate('/home', { state: { loginData: data } });
       }
     }).catch(e=>{
 

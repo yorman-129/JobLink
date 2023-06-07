@@ -5,10 +5,9 @@ import { useNavigate } from 'react-router-dom';
 const HeaderHome = ({data}) => {
   const navigate = useNavigate();
 
+  console.log(data)
   const handleClick=()=>{
-    const email= data.data.email
-    console.log(email)
-    navigate(`/progreso/${email}`)
+    navigate(`/home/progreso`)
   }
 
 
