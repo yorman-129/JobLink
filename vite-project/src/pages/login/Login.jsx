@@ -17,7 +17,7 @@ const Login = () => {
     
     axios.post('http://localhost:8087/estudiante/login', data).then((res) => {
       if (res.status === 200) {
-        dataUser(data)
+
         navigate('/home');
       }
     }).catch(e=>{
