@@ -3,10 +3,8 @@ import axios from 'axios';
 import CardReto from '../retos/CardReto';
 import './mainHome.css';
 
-const MainHome = () => {
+const MainHome = ({data}) => {
   const [retos, setReto]=useState([{}]) 
-
-
   useEffect(() => {
     axios.get('http://localhost:8087/retos/all')
       .then(res => {
@@ -32,7 +30,7 @@ const MainHome = () => {
             
             {retos.map((reto) =>{
              
-              return <CardReto description={reto.descripcion} dificultad={reto.dificultad} empresa={reto.empresa} id={reto.id} onClick={handleReto}/>
+              return <CardReto data={data} description={reto.descripcion} dificultad={reto.dificultad} empresa={reto.empresa} id={reto.id} onClick={handleReto}/>
             })} 
          
             

@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 const HeaderHome = ({data}) => {
   const navigate = useNavigate();
 
+  console.log(data)
   const handleClick=()=>{
-    
     navigate(`/home/progreso`)
   }
 
