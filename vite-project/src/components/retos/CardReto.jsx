@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const CardReto = ({data,description,dificultad,empresa,id, onClick}) => {
-  console.log(data, "cardreto")
+  
     const navigate = useNavigate();
     const handleButton = (evento)=>{
       navigate(`/retoSolucion/${id}`, { state: { loginData: data } })
