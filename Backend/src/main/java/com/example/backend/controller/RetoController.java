@@ -61,9 +61,8 @@ public class RetoController {
     }
   }
 
-  @GetMapping(value = "progreso", produces = MediaType.APPLICATION_JSON_VALUE)
-  public List<Reto> retosByEmail(@RequestBody HashMap<String, String> request) {
-    String email = request.get("email");
+  @GetMapping(value = "progreso/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+  public List<Reto> retosByEmail(@PathVariable("email") String email) {
 
     List<Reto> retoList = retoService.getAllRetos();
     return Optional.ofNullable(retoList).orElse(Collections.emptyList()).stream()
