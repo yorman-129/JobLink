@@ -1,7 +1,9 @@
 package com.example.backend.controller;
 
 import com.example.backend.dao.EstudianteRepository;
+import com.example.backend.model.Estudiante;
 import com.example.backend.model.Reto;
+import com.example.backend.service.EstudianteService;
 import com.example.backend.service.RetoService;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/retos")
 public class RetoController {
   @Autowired RetoService retoService;
+  @Autowired EstudianteService estudianteService;
   @Autowired private EstudianteRepository estudianteRepository;
 
   @DeleteMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -72,11 +75,18 @@ public class RetoController {
 
   @GetMapping(value = "/{id}/solucion", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
   public ResponseEntity<Resource> downloadRetoSolucion(@PathVariable String id) {
+
+    List<Reto> retoList = retoService.getAllRetos();
+
+    String email =
+        retoList.stream().filter(reto -> reto.getId().equals(id)).findFirst().get().getMail();
+    String deletedDomain = email.replaceAll("@.*", "");
+
     byte[] solucion = retoService.obtenerSolucion(id);
     if (solucion != null) {
       ByteArrayResource resource = new ByteArrayResource(solucion);
       HttpHeaders headers = new HttpHeaders();
-      headers.setContentDispositionFormData("attachment", "solucion.zip");
+      headers.setContentDispositionFormData("attachment", deletedDomain+".zip");
       return ResponseEntity.ok()
           .headers(headers)
           .contentLength(solucion.length)
