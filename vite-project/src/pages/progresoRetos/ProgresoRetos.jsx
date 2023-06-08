@@ -1,18 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import HeaderHome from '../../components/headerHome/HeaderHome'
 import Footer from '../../components/footer/Footer'
-import { useParams } from 'react-router-dom';
 import MainProgreso from './mainProgreso';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
 const ProgresoRetos = () => {
+    const location = useLocation();
+    const loginData = location.state?.loginData;
+    console.log(loginData)
     const { id } = useParams();
-    console.log(id)
+    const [retos, setReto] = useState(null);
+    const url=`http://localhost:8087/retos/progreso/${id}`
+    console.log("path", url)
+    useEffect(() => {
+        axios.get(url)
+            .then(res => {
+                 setReto(res.data);
+                console.log(res.data)
+            });
+    }, []);
+
     return (
         <>
             <HeaderHome />
-            <MainProgreso/>
-            <Footer/>
+            <MainProgreso data={retos} />
+            <Footer />
         </>
 
     )

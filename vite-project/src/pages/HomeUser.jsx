@@ -5,10 +5,10 @@ import Footer from '../components/footer/Footer'
 
 
 const HomeUser = ({data}) => {
-    console.log(data,"home user")
+    
     return (
         <div>
-            <HeaderHome />
+            <HeaderHome data={data}/>
             <MainHome data={data}/>
             <Footer />
         </div>

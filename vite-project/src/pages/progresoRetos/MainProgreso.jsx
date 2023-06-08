@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-const MainProgreso = () => {
+const MainProgreso = ({ data }) => {
+  const [dataRetos, setDataRetos] = useState(null)
+  useEffect(()=>{
+    setDataRetos(data)
+  },[])
   return (
-    <div>
-      hoallaa
-    </div>
+    <>
+    <ul>
+      {console.log(dataRetos)}
+      {dataRetos.forEach(element => {
+        console.log(element)
+      })}
+      </ul>
+    </>
   )
 }
 
 export default MainProgreso
+

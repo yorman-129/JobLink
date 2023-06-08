@@ -7,7 +7,7 @@ const HeaderHome = ({data}) => {
 
   console.log(data)
   const handleClick=()=>{
-    navigate(`/home/progreso`)
+    navigate(`/home/progreso/${data.email}`, { state: { loginData: data } })
   }
 
 
